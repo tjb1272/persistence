@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const app = express()
 const handlebars = require('express-handlebars').create({ defaultLayout: 'main' })
 const db = new sqlite3.Database("./Chinook_Sqlite_AutoIncrementPKs.sqlite");
-// const stmt = db.prepare(`INSERT INTO Artist (ArtistId, Name) VALUES (?, ?)`);
 
 app.engine('handlebars', handlebars.engine)
 app.set('view engine', 'handlebars')
