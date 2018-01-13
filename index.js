@@ -20,12 +20,7 @@ var req = http.request(options, function(res) {
 req.end();
 
 
-db.each(`SELECT * from Artist LIMIT 100`, (err, row) => {
-  if (err) throw err;
-  console.log(row);
-});
-
-db.each(`SELECT * from Album LIMIT 100`, (err, row) => {
+db.each(`SELECT * FROM artist LEFT OUTER JOIN album using (ArtistId)`, (err, row) => {
   if (err) throw err;
   console.log(row);
 });
