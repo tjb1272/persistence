@@ -1,4 +1,4 @@
-<form action="/form" method="POST">
+{{!-- <form action="/article" method="POST">
     <div>
         <label for="ArtistId">Artist Id: </label>
         <input type="text" name="artistId">
@@ -17,17 +17,19 @@
     <div>
         <button type="submit">Submit</button>
     </div>
-</form>
+</form> --}}
 
+<div>
 <table>
     <tbody>
         <tr>
-            <th>Artist</th>
+            <th>Artist Name</th>
             <th>Album</th>
         </tr>
         <tr>
-            <td>{{res.body.artist}}</td>
+            <td>{{res.body.name}}</td>
             <td>{{res.body.title}}</td>
         </tr>
     </tbody>
 </table>
+</div>
