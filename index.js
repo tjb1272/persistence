@@ -20,17 +20,21 @@ var req = http.request(options, function(res) {
 req.end();
 
 
-db.each(`SELECT * FROM artist LEFT OUTER JOIN album using (ArtistId)`, (err, row) => {
-  if (err) throw err;
-  console.log(row);
-});
+// db.each(`SELECT * FROM artist LEFT OUTER JOIN album using (ArtistId)`, (err, row) => {
+//   if (err) throw err;
+//   console.log(row);
+// });
 
-db.close();
+
 
 app.get('/album', (req, res) => {
+  db.all(`SELECT * FROM artist LEFT OUTER JOIN album using (ArtistId)`, (err, row) => {
+    if (err) throw err;
+    console.log(row)
+    res.render('home', {combined: row})
   // console.log('ArtistId: ' + req.body.artistid);
-  console.log('Title: ' + req.body.title);
-  res.render('home')
+  });
+  db.close();
 })
 
 app.get('/artist', (req, res) => {
