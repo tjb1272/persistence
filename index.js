@@ -28,14 +28,14 @@ db.each(`SELECT * FROM artist LEFT OUTER JOIN album using (ArtistId)`, (err, row
 db.close();
 
 app.get('/album', (req, res) => {
-  console.log('ArtistId: ' + req.body.artistid);
+  // console.log('ArtistId: ' + req.body.artistid);
   console.log('Title: ' + req.body.title);
   res.render('home')
 })
 
 app.get('/artist', (req, res) => {
-  console.log('ArtistId: ' + req.body.artistid);
-  console.log('Title: ' + req.body.name);
+  // console.log('ArtistId: ' + req.body.artistid);
+  console.log('Name: ' + req.body.name);
   res.render('home')
 })
 
