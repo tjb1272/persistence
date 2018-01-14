@@ -5,10 +5,12 @@
             <th>Artist Name</th>
             <th>Album</th>
         </tr>
+        {{#each combined}}
         <tr>
-            <td>{{req.body.name}}</td>
-            <td>{{req.body.title}}</td>
+            <td>{{this.Name}}</td>
+            <td>{{this.Title}}</td>
         </tr>
+        {{/each}}
     </tbody>
 </table>
 </div>
