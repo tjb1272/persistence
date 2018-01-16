@@ -19,7 +19,7 @@ var req = http.request(options, function(res) {
 req.end();
 
 app.get('/album', (req, res) => {
-  db.all(`SELECT * FROM artist LEFT OUTER JOIN album using (ArtistId)`, (err, row) => {
+  db.all(`SELECT * FROM artist LEFT OUTER JOIN album using (ArtistId) LIMIT 100`, (err, row) => {
     if (err) throw err;
     console.log(row)
     res.render('home', {combined: row})
